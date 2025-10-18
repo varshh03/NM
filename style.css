@@ -1,0 +1,324 @@
+
+body {
+    margin: 0;
+    font-family: 'Inter', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #1e2125; 
+    color: #e0e0e0; 
+}
+
+/* Base input/button styles */
+.input, .textarea { 
+    width: 100%; 
+    padding: 12px; 
+    margin: 8px 0; 
+    background-color: rgba(255, 255, 255, 0.1); 
+    color: #e0e0e0;
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    border-radius: 8px; 
+    box-sizing: border-box; 
+    font-family: inherit;
+    font-size: 16px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.input:focus, .textarea:focus {
+    outline: none;
+    border-color: #5d9cec; 
+    box-shadow: 0 0 0 2px #5d9cec; 
+}
+.textarea {
+    min-height: 80px;
+    resize: vertical; 
+}
+
+/* Main button style - Vibrant Blue */
+.button { 
+    padding: 12px 24px; 
+    background: linear-gradient(45deg, #4A90E2, #73b0f5); /* Gradient for vibrancy */
+    color: white; 
+    border: none; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3); /* Subtle vibrant shadow */
+    transition: all 0.3s ease;
+}
+.button:hover {
+    background: linear-gradient(45deg, #73b0f5, #4A90E2);
+    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.5);
+    transform: translateY(-2px);
+}
+.button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(74, 144, 226, 0.3);
+}
+.smallButton {
+    width: auto;
+}
+
+/* Login Page Styles */
+.loginContainer { 
+    max-width: 400px; 
+    margin: 100px auto; 
+    padding: 40px; 
+    background-color: rgba(255, 255, 255, 0.05); 
+    backdrop-filter: blur(10px); 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 15px; 
+    text-align: center;
+}
+.header { 
+    color: #5d9cec; 
+    margin-bottom: 10px;
+}
+.subHeader { 
+    color: #ccc; 
+    font-size: 14px; 
+    margin-bottom: 25px; 
+}
+
+
+/* Dashboard Layout & Header*/
+.dashboardContainer { 
+    min-height: 100vh; 
+    background-color: #1e2125; /* Match body for deep dark background */
+}
+.dashboardHeader { 
+    padding: 20px 40px; 
+    background-color: #121212; /* Even darker header bar */
+    color: white; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5); 
+}
+.headerControls { 
+    display: flex; 
+    gap: 15px; 
+}
+
+.createButton { 
+    padding: 10px 20px; 
+    background: linear-gradient(45deg, #34A853, #63c981); 
+    color: white; 
+    border: none; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(52, 168, 83, 0.3);
+    transition: all 0.3s ease;
+}
+.createButton:hover {
+    background: linear-gradient(45deg, #63c981, #34A853);
+    box-shadow: 0 6px 20px rgba(52, 168, 83, 0.5);
+    transform: translateY(-2px);
+}
+
+.logoutButton { 
+    padding: 10px 20px; 
+    background: linear-gradient(45deg, #E24A4A, #f57373); 
+    color: white; 
+    border: none; 
+    border-radius: 8px; 
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(226, 74, 74, 0.3);
+    transition: all 0.3s ease;
+}
+.logoutButton:hover {
+    background: linear-gradient(45deg, #f57373, #E24A4A);
+    box-shadow: 0 6px 20px rgba(226, 74, 74, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Main Content Layout (Sidebar & Calendar) - Glassmorphism */
+.mainContent { 
+    display: flex; 
+    padding: 20px; 
+    gap: 20px; 
+}
+@media (max-width: 768px) {
+    .mainContent { 
+        flex-direction: column; 
+    }
+    .sidebar {
+        min-width: 100%; 
+    }
+}
+
+/* Sidebar & Filters - Glassmorphism */
+.sidebar { 
+    min-width: 250px; 
+    padding: 20px; 
+    background-color: rgba(255, 255, 255, 0.05); 
+    backdrop-filter: blur(10px); 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 15px; 
+    height: fit-content;
+}
+.filterList { 
+    list-style: none; 
+    padding: 0; 
+    line-height: 2; 
+    font-size: 15px; 
+    color: #ccc; 
+}
+.filterItem { 
+    cursor: pointer; 
+    padding: 8px 10px; 
+    border-radius: 8px; 
+    transition: background-color 0.2s ease;
+}
+.filterItem:hover { 
+    background-color: rgba(255, 255, 255, 0.1); 
+    color: white;
+}
+/* Active filter state */
+.filterItem.active {
+    background-color: rgba(74, 144, 226, 0.2); 
+    color: #5d9cec; 
+    font-weight: bold;
+    border-left: 4px solid #5d9cec;
+    padding-left: 6px;
+}
+
+/* Calendar Area - Glassmorphism */
+.calendarArea { 
+    flex-grow: 1; 
+    background-color: rgba(255, 255, 255, 0.05); 
+    backdrop-filter: blur(10px); 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    padding: 20px; 
+    border-radius: 15px; 
+}
+
+/* FullCalendar adjustments for Dark Theme */
+
+.calendarArea .fc-toolbar-title, 
+.calendarArea .fc-col-header-cell, 
+.calendarArea .fc-daygrid-body {
+    color: #e0e0e0;
+}
+.calendarArea .fc-daygrid-day {
+    background-color: rgba(255, 255, 255, 0.02); /* */
+    border-color: rgba(255, 255, 255, 0.1);
+}
+.calendarArea .fc-day-other {
+    color: #777 !important;
+}
+
+
+/* Event Details Page - Glassmorphism */
+.detailPage { 
+    padding: 40px; 
+    text-align: center; 
+    max-width: 600px; 
+    margin: 50px auto; 
+    background-color: rgba(255, 255, 255, 0.05); 
+    backdrop-filter: blur(10px); 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 15px; 
+}
+.detailText {
+    color: #ccc;
+}
+.backButton {
+    padding: 10px 20px; 
+    background-color: #444; 
+    color: white; 
+    border: none; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    margin-top: 20px;
+    font-weight: normal;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.backButton:hover {
+    background-color: #555;
+    transform: translateY(-1px);
+}
+
+/* Modal & Message Box*/
+
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modalContent {
+    /* Glass effect */
+    background-color: rgba(255, 255, 255, 0.05); 
+    backdrop-filter: blur(15px); 
+    border: 1px solid rgba(255, 255, 255, 0.15); 
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease-out; 
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9) }
+    to { opacity: 1; transform: scale(1) }
+}
+.modalHeader {
+    color: #5d9cec;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+.label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #ccc;
+    font-size: 14px;
+}
+.modalActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 25px;
+}
+.cancelButton {
+    padding: 12px 24px; 
+    background-color: #444; 
+    color: white; 
+    border: none; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+.cancelButton:hover {
+    background-color: #555;
+}
+
+/* Message Box */
+.messageBox {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #5d9cec; 
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    box-shadow: 0 4px 12px rgba(93, 156, 236, 0.5);
+}
